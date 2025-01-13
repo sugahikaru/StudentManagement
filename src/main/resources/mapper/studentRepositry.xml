@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.raishtec.Hikaru.Suga.repository.StudentRepository">
+
+  <!-- 受講生の全件検索 --> <!-- resultTypeはSQLクエリの結果として返されるデータの型を指定するためのもの -->
+  <select id="find" resultType="com.example.raishtec.Hikaru.Suga.data.Student">
+    SELECT * FROM students
+  </select>
+
+  <!-- コース申し込み状況の全件検索 -->
+  <select id="searchCourseApplicationStatus" resultType="com.example.raishtec.Hikaru.Suga.data.CourseApplicationStatus">
+    SELECT * FROM CourseApplicationStatus
+  </select>
+
+  <!-- 受講生の検索 -->
+  <select id="searchStudent" resultType="com.example.raishtec.Hikaru.Suga.data.Student">
+    SELECT * FROM students WHERE id = #{id}
+  </select>
+
+  <!-- コースIDで指定したコースの申し込み状況 -->
+  <select id="findCourseApplicationStatusByCourseId" parameterType="int" resultType="com.example.raishtec.Hikaru.Suga.data.CourseApplicationStatus">
+    SELECT * FROM CourseApplicationStatus WHERE courseId = #{courseId}
+  </select>
+
+    <!-- 学生情報を挿入 -->
+  <insert id="insertStudent" parameterType="com.example.raishtec.Hikaru.Suga.data.Student" useGeneratedKeys="true" keyProperty="id">
+      INSERT INTO students (fullname, furigana, email, city, age, gender, remark, isDeleted)
+      VALUES (#{fullname}, #{furigana}, #{email}, #{city}, #{age}, #{gender}, #{remark}, false)
+  </insert>
+
+  <!-- 学生コース登録 -->
+  <insert id="registerStudentCourses" parameterType="com.example.raishtec.Hikaru.Suga.data.StudentCourses" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO student_courses (student_id, course_name, start_date, end_date)
+    VALUES (#{studentId}, #{courseName}, #{startDate}, #{endDate})
+  </insert>
+
+  <!-- 新規申し込み状況の登録 -->
+  <insert id="insertCourseApplicationStatus" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO CourseApplicationStatus (courseId, status)
+    VALUES (#{courseId}, #{status})
+  </insert>
+
+  <!-- 学生情報を更新 -->
+  <update id="updateStudent" parameterType="com.example.raishtec.Hikaru.Suga.data.Student">
+    UPDATE students
+    SET
+    fullname = #{fullname},
+    furigana = #{furigana},
+    email = #{email},
+    city = #{city},
+    age = #{age},
+    gender = #{gender},
+    remark = #{remark},
+    isDeleted = #{isDeleted}
+    WHERE
+    id = #{id}
+  </update>
+
+  <!-- 学生コース情報を更新 -->
+  <update id="updateStudentsCourses" parameterType="com.example.raishtec.Hikaru.Suga.data.StudentCourses">
+    UPDATE student_courses
+    SET course_name = #{courseName}
+    WHERE id = #{id}
+  </update>
+
+  <!-- 申し込み状況の更新 -->
+  <update id="updateCourseApplicationStatus">
+    UPDATE CourseApplicationStatus
+    SET status = #{status}
+    WHERE courseId = #{courseId}
+  </update>
+
+</mapper>
