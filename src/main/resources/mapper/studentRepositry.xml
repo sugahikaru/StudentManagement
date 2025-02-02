@@ -9,7 +9,7 @@
 
   <!-- コース申し込み状況の全件検索 -->
   <select id="searchCourseApplicationStatus" resultType="com.example.raishtec.Hikaru.Suga.data.CourseApplicationStatus">
-    SELECT * FROM CourseApplicationStatus
+    SELECT * FROM course_application_status
   </select>
 
   <!-- 受講生の検索 -->
@@ -19,7 +19,7 @@
 
   <!-- コースIDで指定したコースの申し込み状況 -->
   <select id="findCourseApplicationStatusByCourseId" parameterType="int" resultType="com.example.raishtec.Hikaru.Suga.data.CourseApplicationStatus">
-    SELECT * FROM CourseApplicationStatus WHERE courseId = #{courseId}
+    SELECT * FROM course_application_status WHERE courseId = #{courseId}
   </select>
 
     <!-- 学生情報を挿入 -->
@@ -36,7 +36,7 @@
 
   <!-- 新規申し込み状況の登録 -->
   <insert id="insertCourseApplicationStatus" useGeneratedKeys="true" keyProperty="id">
-    INSERT INTO CourseApplicationStatus (courseId, status)
+    INSERT INTO course_application_status (courseId, status)
     VALUES (#{courseId}, #{status})
   </insert>
 
@@ -65,7 +65,7 @@
 
   <!-- 申し込み状況の更新 -->
   <update id="updateCourseApplicationStatus">
-    UPDATE CourseApplicationStatus
+    UPDATE course_application_status
     SET status = #{status}
     WHERE courseId = #{courseId}
   </update>
