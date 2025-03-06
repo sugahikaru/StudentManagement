@@ -13,8 +13,8 @@ VALUES
 (3, 'Web制作', '2024-03-20 00:00:00', '2024-03-27 00:00:00');
 
 -- データ挿入: ID 1
-INSERT INTO courseapplicationstatus (id, courseId, status)
+INSERT INTO course_application_status (courseId, status)
 VALUES
-(1, 1, '受講中'),
-(2, 2, '仮申込み'),
-(3, 3, '受講終了');
+(1, '受講中'),
+(2, '仮申込み'),
+(3, '受講終了');

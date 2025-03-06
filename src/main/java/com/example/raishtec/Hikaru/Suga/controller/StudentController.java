@@ -57,11 +57,6 @@ public class StudentController {
     return service.getStudentList();
   }
 
-  //@GetMapping("/studentCourses")
-  //public List<StudentCourses> getstudentCoursesList() {
-  //  return service.getstudentCoursesList();
-  //}
-
   /**
    * 受講生検索。
    * IDに紐づく任意の受講生情報を取得します。

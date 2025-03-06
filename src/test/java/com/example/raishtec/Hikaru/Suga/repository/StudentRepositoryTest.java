@@ -3,6 +3,7 @@ package com.example.raishtec.Hikaru.Suga.repository;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.example.raishtec.Hikaru.Suga.data.CourseApplicationStatus;
 import com.example.raishtec.Hikaru.Suga.data.Student;
 import com.example.raishtec.Hikaru.Suga.data.StudentCourses;
 import java.time.LocalDateTime;
@@ -20,6 +21,12 @@ class StudentRepositoryTest {
   @Test
   void 受講生の全件検索が行えること() {
     List<Student> actual = sut.find();
+    assertThat(actual.size()).isEqualTo(3);
+  }
+
+  @Test
+  void 受講生申し込み情報の全件検索が行えること() {
+    List<CourseApplicationStatus> actual = sut.searchCourseApplicationStatus();
     assertThat(actual.size()).isEqualTo(3);
   }
 
