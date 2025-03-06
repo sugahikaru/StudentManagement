@@ -83,16 +83,6 @@ public class StudentController {
      return student;
    }
 
-
-
-//  @GetMapping("/newStudent")
-//  public String newStudent(Model model){
-//    StudentDetail studentDetail =new StudentDetail();
-//    studentDetail.setStudentCourses(Arrays.asList(new StudentCourses()));
-//    model.addAttribute("studentDetail", studentDetail);
-//    return "registerStudent";
-//  }
-
   /**
    * 受講生の登録
    * @param studentDetail 受講生詳細
