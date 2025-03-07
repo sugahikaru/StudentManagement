@@ -57,11 +57,6 @@ public class StudentController {
     return service.getStudentList();
   }
 
-  //@GetMapping("/studentCourses")
-  //public List<StudentCourses> getstudentCoursesList() {
-  //  return service.getstudentCoursesList();
-  //}
-
   /**
    * 受講生検索。
    * IDに紐づく任意の受講生情報を取得します。
@@ -87,16 +82,6 @@ public class StudentController {
      }
      return student;
    }
-
-
-
-//  @GetMapping("/newStudent")
-//  public String newStudent(Model model){
-//    StudentDetail studentDetail =new StudentDetail();
-//    studentDetail.setStudentCourses(Arrays.asList(new StudentCourses()));
-//    model.addAttribute("studentDetail", studentDetail);
-//    return "registerStudent";
-//  }
 
   /**
    * 受講生の登録

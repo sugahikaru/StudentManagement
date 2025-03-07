@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS  student_courses
     start_date TIMESTAMP,
     end_date TIMESTAMP
 );
-CREATE TABLE IF NOT EXISTS courseapplicationstatus (
+CREATE TABLE IF NOT EXISTS course_application_status (
    id INT PRIMARY KEY AUTO_INCREMENT,
    courseId INT NOT NULL,
    status VARCHAR(255) NOT NULL
