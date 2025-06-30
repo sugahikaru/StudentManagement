@@ -14,8 +14,11 @@
 
   <!-- 受講生の検索 -->
   <select id="searchStudent" resultType="com.example.raishtec.Hikaru.Suga.data.Student">
-    SELECT * FROM students WHERE id = #{id}
+    SELECT * FROM students
+    WHERE id = #{id}
+    AND (isDeleted IS NULL OR isDeleted = false)
   </select>
+
 
   <!-- コースIDで指定したコースの申し込み状況 -->
   <select id="findCourseApplicationStatusByCourseId" parameterType="int" resultType="com.example.raishtec.Hikaru.Suga.data.CourseApplicationStatus">

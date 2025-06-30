@@ -120,6 +120,9 @@ public interface StudentRepository {
 
   @Insert("INSERT student values(#{name},#{age})")
   void registerStudent(String name, int age);
+
+  @Update("UPDATE students SET isDeleted = true WHERE id = #{id}")
+  void updateIsDeletedTrue(String id);
 }
 
 

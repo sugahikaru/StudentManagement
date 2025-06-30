@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -126,6 +127,12 @@ public class StudentController {
    public ResponseEntity<String> updateStudent(@RequestBody@Valid StudentDetail studentDetail) {
    service.updateStudent(studentDetail);
     return ResponseEntity.ok("更新完了");
+  }
+
+  @DeleteMapping("/students/{id}")
+  public ResponseEntity<Void> deleteStudent(@PathVariable String id) {
+    service.deleteStudent(id);
+    return ResponseEntity.noContent().build();
   }
   //@Operation(
   //    summary = "例外発生テスト",
