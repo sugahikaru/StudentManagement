@@ -150,4 +150,12 @@ public class StudentService {
       }
     }
   }
+
+  public void deleteStudent(String id) {
+    Student student = repository.searchStudent(id);
+    if (student == null) {
+      throw new RuntimeException("Student not found or already deleted");
+    }
+    repository.updateIsDeletedTrue(id);
+  }
 }

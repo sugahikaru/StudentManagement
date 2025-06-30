@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Spring Bootの設定ファイルをGit管理から外す
+src/main/resources/application.properties
