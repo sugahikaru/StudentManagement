@@ -160,9 +160,3 @@ else IDフォーマットが無効
     API -->> User: 400 Bad Request（無効なIDフォーマット）
 end
 ```
-
-## 🎥 API動作デモ動画
-
-以下の画像をクリックすると、Google Driveで動画を再生できます。
-
-[![APIデモ](https://github.com/user-attachments/assets/22b00021-30da-4188-89ee-f421a8430e37)](https://drive.google.com/file/d/1LH1qrIs4S3m_3MfzGJaBSUgYdQ373aJb/view?usp=drive_link)
